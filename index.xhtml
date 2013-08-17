@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Number Radix Convertor</title>
+		<meta charset="UTF-8"/>
+	</head>
+	<body>
+		<h1 id="title">Number Radix Convertor</h1>
+		<form id="form">
+			<main role="main">
+				<fieldset>
+					<legend>Input</legend>
+					<label class="Radix">
+						<span class="Label">Radix</span>
+						<input id="inputRadix" class="Radix" type="number" value="10" min="1" max="128"/>
+					</label>
+					<label class="Number">
+						<span class="Label">Number</span>
+						<textarea id="inputNumber" tabindex="1" placeholder="Input number"/>
+					</label>
+				</fieldset>
+				<fieldset>
+					<legend>Output</legend>
+					<label class="Radix">
+						<span class="Label">Radix</span>
+						<input id="outputRadix" class="Radix" type="number" value="16" min="1" max="128"/>
+					</label>
+					<label class="Number">
+						<span class="Label">Number</span>
+						<output id="outputField" for="inputNumber inputRadix inputDigitSet outputRadix outputDigitSet ignoreCase"/>
+					</label>
+				</fieldset>
+			</main>
+			<section id="advanced">
+				<h1 id="advancedTitle">Advanced Settings</h1>
+				<fieldset>
+					<legend>Digit sets</legend>
+					<label id="ignoreCaseLabel">
+						<input id="ignoreCase" type="checkbox" checked="checked"/>
+						Ignore letter case
+					</label>
+					<label>
+						<span class="Label">Input</span>
+						<textarea id="inputDigitSet">0123456789</textarea>
+					</label>
+					<label>
+						<span class="Label">Output</span>
+						<textarea id="outputDigitSet">0123456789ABCDEF</textarea>
+					</label>
+				</fieldset>
+			</section>
+		</form>
+	</body>
+</html>

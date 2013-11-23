@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 * {
+	box-sizing: border-box;
 	background-color: gray;
 	font-family: UbuntuMono, "Ubuntu Mono", monospace;
 	color: #555;
@@ -17,6 +18,10 @@ body {
 	margin: 5% 10%;
 	padding: 0;
 	font-size: 1.25rem;
+}
+
+h1, legend, .Label {
+	text-transform: lowercase;
 }
 
 #title {
@@ -61,7 +66,7 @@ fieldset {
 	border: none;
 }
 main > fieldset {
-	height: 5rem;
+	height: 11rem;
 	box-shadow: 0 1.5rem 1rem -1rem #707070;
 }
 main > fieldset > * {
@@ -79,8 +84,7 @@ legend {
 label {
 	display: block;
 	margin: 0;
-	padding: 1rem;
-	box-sizing: border-box;
+	padding: 1.25rem 1.75rem 1.5rem;
 }
 label:not(#ignoreCaseLabel) {
 	height: 100%;
@@ -88,15 +92,32 @@ label:not(#ignoreCaseLabel) {
 	box-shadow: inset 0 0 1rem 0 #707070;
 }
 label.Radix {
+	max-width: calc(25% - 6rem);
+	padding-right: 2.5rem;
 }
 label.Number {
 	width: calc(75% - 6rem);
+	margin-left: -.75rem;
 }
-input.Radix {
+input {
+	border: none;
+	font-size: 1em;
+}
+textarea, output, input.Radix {
 	display: block;
+	width: 100%;
+	height: 2em;
+	padding: .5em;
+	float: left;
+	border: none;
+	border-radius: .5rem;
+	font-size: 1em;
+	box-shadow: inset 0 0 .5rem 0 #787878;
+	resize: none;
 }
 .Label {
 	display: block;
+	margin-bottom: .5rem;
 	font-size: 1.125rem;
 	font-weight: bold;
 	text-align: center;
@@ -110,11 +131,5 @@ label:not(.Radix) > .Label {
 	float: left;
 }
 main > fieldset > label {
-	float: left;
-}
-label > textarea, label > output {
-	display: block;
-	width: 80%;
-	min-height: 1rem;
 	float: left;
 }

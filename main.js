@@ -5,7 +5,6 @@ var inputNumber, inputRadix, inputDigitSet, ignoreCase,
 
 window.onload = function() {
 	outputField = document.getElementById('outputField');
-	clearError();
 	['inputNumber', 'inputRadix', 'inputDigitSet', 'ignoreCase',
 		'outputRadix', 'outputDigitSet'].forEach(function(id) {
 			var e = window[id] = document.getElementById(id);
@@ -14,6 +13,7 @@ window.onload = function() {
 			else
 				e.onclick = update;
 		})
+	update();
 }
 
 function update() {

@@ -38,6 +38,7 @@ function calculate() {
 }
 
 function strtonum(input, radix, digitset) {
+	var literalInput = input;
 	if (ignoreCase.checked) {
 		input = input.toUpperCase();
 		digitset = digitset.toUpperCase();
@@ -46,7 +47,7 @@ function strtonum(input, radix, digitset) {
 	for (var i = input.length-1; i !== -1; i--) {
 		var n = digitset.indexOf(input[i]);
 		if (n === -1)
-			return setError("‘" + input[i] +
+			return setError("‘" + literalInput[i] +
 				"’ is not a recognized digit");
 		result += n * placeMultiplier;
 		placeMultiplier *= radix;
@@ -69,6 +70,7 @@ function numtostr(input, radix, digitset) {
 function validateDigitSet(type) {
 	var digitset = window[type + 'DigitSet'].value,
 		radix = window[type + 'Radix'].valueAsNumber
+	var literalDigitset = digitset;
 	if (ignoreCase.checked)
 		digitset = digitset.toUpperCase();
 	if (digitset.length !== radix)
@@ -78,7 +80,7 @@ function validateDigitSet(type) {
 			" for radix " + radix);
 	for (var i = 0, l = digitset.length; i !== l; i++)
 		if (digitset.lastIndexOf(digitset[i]) !== i)
-			return setError("‘" + digitset[i] +
+			return setError("‘" + literalDigitset[i] +
 				"’ occurs multiple times in " + type +
 				" digit set");
 }

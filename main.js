@@ -44,7 +44,7 @@ function strtonum(input, radix, digitset) {
 		digitset = digitset.toUpperCase();
 	}
 	var result = 0, placeMultiplier = 1;
-	for (var i = input.length-1; i !== -1; i--) {
+	for (var i = input.length-1; i !== -1; --i) {
 		var n = digitset.indexOf(input[i]);
 		if (n === -1)
 			return setError("‘" + literalInput[i] +
@@ -78,7 +78,7 @@ function validateDigitSet(type) {
 			digitset.length + " digits — too " +
 			(digitset.length < radix ? "few" : "many") +
 			" for radix " + radix);
-	for (var i = 0, l = digitset.length; i !== l; i++)
+	for (var i = 0, l = digitset.length; i !== l; ++i)
 		if (digitset.lastIndexOf(digitset[i]) !== i)
 			return setError("‘" + literalDigitset[i] +
 				"’ occurs multiple times in " + type +

@@ -8,8 +8,11 @@ window.onload = function() {
 	clearError();
 	['inputNumber', 'inputRadix', 'inputDigitSet', 'ignoreCase',
 		'outputRadix', 'outputDigitSet'].forEach(function(id) {
-			window[id] = document.getElementById(id);
-			window[id].oninput = update;
+			var e = window[id] = document.getElementById(id);
+			if (e.type !== 'checkbox')
+				e.oninput = update;
+			else
+				e.onclick = update;
 		})
 }
 
